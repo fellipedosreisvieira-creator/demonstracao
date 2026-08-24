@@ -27,10 +27,10 @@
 /* ---------- Tema Claro ---------- */
 [data-theme='light'] {
   color-scheme: light;
-  --bg: #f3f1ec;
-  --bg-soft: #ece8e0;
-  --surface: #ffffff;
-  --surface-2: #edeae2;
+  --bg: #f7f1e8;
+  --bg-soft: #efe6d4;
+  --surface: #fdf8f0;
+  --surface-2: #f0e6d6;
   --ink: #17181b;
   --ink-muted: #5c6066;
   --line: rgba(23, 24, 27, 0.09);
@@ -41,7 +41,7 @@
   --accent-2: #b9862a;
   --plate: #e2ddd2;
 
-  --nav-bg: rgba(243, 241, 236, 0.78);
+  --nav-bg: rgba(247, 241, 232, 0.78);
   --card-shadow: 0 20px 45px -22px rgba(23, 24, 27, 0.25);
 }
 

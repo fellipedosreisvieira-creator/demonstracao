@@ -7,8 +7,8 @@
   position: relative;
   min-height: 100svh;
   display: flex;
-  align-items: flex-end;
-  padding-top: var(--space-xl);
+  align-items: flex-start; /* Fixa o conteúdo no topo para alinharmos com exatidão */
+  padding-top: 0; /* Zera o padding para o cálculo bater com a foto */
   overflow: hidden;
   isolation: isolate;
 }
@@ -43,15 +43,20 @@
 
 .hero__content {
   position: relative;
-  z-index: 2; /* Crucial: Protege o texto para não ser engolido pelo neon */
+  z-index: 2;
   width: 100%;
-  padding-bottom: var(--space-2xl);
+  max-width: 520px; /* Restringe a largura para criar o efeito "bloco" ao lado da foto */
+  height: clamp(340px, 33vw, 620px); /* EXATAMENTE a mesma altura da foto */
+  margin-top: 17svh; /* EXATAMENTE a mesma distância do topo que a foto (17%) */
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column; /* Transforma o texto em uma coluna flexível */
 }
 
 .hero__title {
   font-size: var(--fs-hero);
   line-height: 0.88;
-  margin-top: var(--space-sm);
+  margin-top: 0; /* Gruda o texto no topo exato da caixa */
 }
 
 .hero__title .line { display: block; overflow: hidden; }
@@ -78,7 +83,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-md);
-  margin-top: var(--space-xl);
+  margin-top: auto; /* Isso empurra os botões perfeitamente para a borda final da caixa */
 }
 
 .hero__scroll {
@@ -276,6 +281,9 @@
 
   .hero__content {
     padding-top: 0;
+    height: auto; /* Reseta a altura do desktop */
+    margin-top: 0; /* Reseta a margem do desktop */
+    display: block; /* Desliga o flexbox para não quebrar no celular */
   }
 
   /* Sobreposição sutil: só a primeira linha do título cruza a base da foto */
@@ -283,6 +291,10 @@
     position: relative;
     z-index: 2;
     margin-top: -2.25rem;
+  }
+  
+  .hero__actions {
+    margin-top: var(--space-xl); /* Devolve a margem tradicional dos botões no mobile */
   }
 }
 /* ---------- Navegação rápida no hero (sem navbar fixa) ---------- */
