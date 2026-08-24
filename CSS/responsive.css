@@ -1,0 +1,353 @@
+/* =========================================================
+   RESPONSIVE.CSS — Ajustes por breakpoint
+   ========================================================= */
+
+/* ---------- Tablet (≤ 1024px) ---------- */
+@media (max-width: 1024px) {
+  .services__grid,
+  .methods__grid,
+  .pricing__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing__grid .plan-card:last-child {
+    grid-column: span 2;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .about__media {
+    max-width: 320px;
+    margin-inline: auto;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__panel {
+    order: -1;
+  }
+}
+
+/* ---------- Mobile large (≤ 768px) ---------- */
+@media (max-width: 768px) {
+  :root {
+    --space-3xl: 5rem;
+    --space-2xl: 3.5rem;
+  }
+
+  /* Logo | Agendar (centralizado) | Tema + Hambúrguer */
+  .navbar__inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: var(--space-sm);
+  }
+
+  .navbar__cta {
+    order: 0; /* reseta o order do desktop — aqui a ordem já vem certa pela posição no HTML */
+    justify-self: center;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.65rem;
+    white-space: nowrap;
+  }
+
+  .navbar__actions {
+    order: 0; /* reseta o order/margin do desktop — o grid já cuida do posicionamento */
+    margin-left: 0;
+    justify-self: end;
+    gap: var(--space-2xs);
+  }
+
+  /* Links viram um menu dropdown, escondido até abrir o hambúrguer */
+  .nav-links {
+    display: none;
+  }
+
+  .navbar.is-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: var(--space-md) var(--container-pad) var(--space-lg);
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-links a {
+    font-size: var(--fs-small);
+    padding-block: var(--space-2xs);
+  }
+
+  /* Hambúrguer volta a aparecer no mobile */
+  .nav-toggle {
+    display: grid;
+    place-items: center;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5.5rem;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+
+  .about__stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .services__grid,
+  .methods__grid,
+  .pricing__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing__grid .plan-card:last-child {
+    grid-column: auto;
+  }
+
+  .plan-card--featured {
+    transform: none;
+  }
+
+  .footer__top {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .footer__nav {
+    gap: var(--space-xl);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+}
+
+/* ---------- Mobile small (≤ 480px) ---------- */
+@media (max-width: 480px) {
+  .container {
+    padding-inline: 1.1rem;
+  }
+
+  .hero__title {
+    line-height: 0.92;
+  }
+
+  .about__card {
+    padding: var(--space-lg);
+  }
+
+  .footer__nav {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+}
+/* =========================================================
+   REFINAMENTO RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .navbar__inner {
+    min-height: 74px;
+  }
+
+  .nav-links {
+    gap: var(--space-md);
+  }
+
+  .hero__content {
+    padding-bottom: 5rem;
+  }
+
+  .service-card {
+    min-height: 500px;
+  }
+
+  .about__card {
+    padding: clamp(2rem, 5vw, 3.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar__inner {
+    min-height: 70px;
+  }
+
+  .navbar.is-open {
+    background: var(--bg);
+  }
+
+  .navbar.is-open .nav-links {
+    box-shadow: 0 24px 40px -30px rgba(0,0,0,.65);
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero__content {
+    padding-bottom: 3.25rem;
+  }
+
+  .hero__lead {
+    max-width: 42rem;
+  }
+
+  .hero__actions {
+    gap: .75rem;
+    margin-top: var(--space-lg);
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .about__media {
+    max-width: 360px;
+    width: 100%;
+  }
+
+  .about__card {
+    padding: 1.75rem;
+  }
+
+  .about__stats {
+    gap: .75rem;
+  }
+
+  .about__stats strong {
+    font-size: 1.75rem;
+  }
+
+  .about__stats span {
+    font-size: .68rem;
+  }
+
+  .service-card {
+    min-height: 480px;
+  }
+
+  .method-card {
+    min-height: auto;
+  }
+
+  .pricing__grid {
+    padding-top: 12px;
+  }
+
+  .plan-card,
+  .plan-card--featured {
+    min-height: 0;
+  }
+
+  .plan-card:hover,
+  .plan-card--featured:hover {
+    transform: none;
+  }
+
+  .contact__panel {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 700px;
+  }
+
+  .hero__title {
+    font-size: clamp(3.2rem, 19vw, 5rem);
+  }
+
+  .hero__lead {
+    font-size: 1rem;
+  }
+
+  .marquee__track span {
+    padding-inline: 1.15rem;
+    gap: .65rem;
+    font-size: .72rem;
+  }
+
+  .about__media {
+    max-width: 100%;
+  }
+
+  .about__stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .about__stats > div {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    align-items: center;
+    column-gap: .75rem;
+  }
+
+  .about__stats strong {
+    font-size: 1.65rem;
+  }
+
+  .about__stats span {
+    margin-top: 0;
+  }
+
+  .service-card {
+    min-height: 430px;
+  }
+
+  .service-card__body {
+    padding: 1.25rem;
+  }
+
+  .plan-card {
+    padding: 2rem 1.25rem;
+  }
+
+  .contact-channel {
+    padding: .85rem;
+  }
+
+  .contact-channel__value {
+    font-size: .95rem;
+    overflow-wrap: anywhere;
+  }
+}
+/* =========================================================
+   AJUSTES MOBILE GERAIS (Android/iOS)
+   ========================================================= */
+@media (max-width: 768px) {
+  /* Garante espaçamento entre a borda da tela e os ícones do menu */
+  .navbar__inner {
+    padding-inline: var(--container-pad) !important;
+  }
+
+  /* Aplica espaço entre o botão de tema e o botão de menu */
+  .navbar__actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important; 
+  }
+}
