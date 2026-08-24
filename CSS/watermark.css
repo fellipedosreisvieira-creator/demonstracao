@@ -1,0 +1,34 @@
+/* =========================================================
+   WATERMARK.CSS — Marca d'água de demonstração
+   Overlay fixo, diagonal, não intrusivo (não recebe cliques)
+   ========================================================= */
+
+.watermark-overlay {
+  position: fixed;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  transform: rotate(-28deg);
+  transform-origin: center;
+
+  background-image: url("../assets/img/watermark/watermark-logo.svg");
+  background-repeat: repeat;
+  background-size: 190px auto;
+
+  opacity: 0.055;
+  pointer-events: none;
+  user-select: none;
+  z-index: 9999;
+}
+
+/* Levemente mais visível no tema claro, onde tende a "sumir" mais */
+[data-theme="light"] .watermark-overlay {
+  opacity: 0.08;
+}
+
+@media (max-width: 640px) {
+  .watermark-overlay {
+    background-size: 130px auto;
+  }
+}
